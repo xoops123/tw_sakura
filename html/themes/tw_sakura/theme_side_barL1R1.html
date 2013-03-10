@@ -1,0 +1,54 @@
+<{strip}>
+	<{if $xoops_showrblock == 1}>
+	<div id="side_bar" class="span5">
+		<{foreach item=block from=$xoops_rblocks name=rbloop}>
+			<{if $block.weight >= 1000 and $block.weight < 2000 }>
+			<div>
+				<{if ! $block.title|strstr:"none"}><h3 class="BlockTitle"><span class="sakura_a"><{$block.title|regex_replace:"/\[\[\w+/":""}></span></h3><{/if}>
+				<{$block.content}>
+			</div>
+		 	<{/if}>
+		<{/foreach}>
+	</div><{* /side_bar left-column *}>
+	<{/if}>
+	<{* /side_bar *}>
+
+	<{if $xoops_showlblock == 1}>
+	<div id="left_bar" class="span2"><{* left-column *}>
+		<{foreach item=block from=$xoops_lblocks name=lbloop}>
+			<div>
+				<{if ! $block.title|strstr:"none"}><h3 class="BlockTitle"><span class="sakura_a"><{$block.title|regex_replace:"/\[\[\w+/":""}></span></h3><{/if}>
+				<{$block.content}>
+			</div>
+		<{/foreach}>
+	</div><{* /side_bar left-column *}>
+	<{/if}>
+
+	<{if $xoops_showrblock == 1}>
+	<div id="right_bar" class="span3"><{* right-column *}>
+		<{foreach item=block from=$xoops_rblocks name=rbloop}>
+		<{if $block.weight < 1000 }>
+			<div>
+				<{if ! $block.title|strstr:"none"}><h3 class="BlockTitle"><span class="sakura_a"><{$block.title|regex_replace:"/\[\[\w+/":""}></span></h3><{/if}>
+				<{$block.content}>
+			</div>
+	 	<{/if}>
+		<{/foreach}>
+	</div>
+	<{/if}>
+
+	<{* side_bar_b *}>
+	<{if $xoops_showrblock == 1}>
+	<div id="side_bar" class="span5">
+		<{foreach item=block from=$xoops_rblocks name=rbloop}>
+			<{if $block.weight >= 2000 }>
+			<div>
+				<{if ! $block.title|strstr:"none"}><h3 class="BlockTitle"><span class="sakura_a"><{$block.title|regex_replace:"/\[\[\w+/":""}></span></h3><{/if}>
+				<{$block.content}>
+			</div>
+		 	<{/if}>
+		<{/foreach}>
+	</div><{* /side_bar_b *}>
+	<{/if}>
+	<{* /side_bar *}>
+<{/strip}>

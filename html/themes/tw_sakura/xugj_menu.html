@@ -1,0 +1,27 @@
+<{* xugj menu *}>
+<{if $menu0.dirname == $xoops_dirname}>
+	<li class="active"><a href="<{$xoops_url}>/"><{$smarty.const._THEME_LANGUAGE_HOME_NAME}></a></li>
+<{else}>
+	<li><a href="<{$xoops_url}>/"><{$smarty.const._THEME_LANGUAGE_HOME_NAME}></a></li>
+<{/if}>
+<{foreach from=$xugj_menus item="menu0"}>
+	<{assign var="xugj_menus1" value=$menu0.sub}>
+	<li class="dropdown<{if $menu0.dirname == $xoops_dirname}> active<{/if}>">
+		<a href="<{$xoops_url}>/modules/<{$menu0.dirname}>/<{$menu0.url}>"
+			<{if $xugj_menus1}> role="button" class="dropdown-toggle" data-toggle="dropdown"<{/if}>
+			><{$menu0.name}>
+			<{if $xugj_menus1}><b class="caret"></b><{/if}>
+		</a>
+
+		<{if $xugj_menus1}>
+			<ul class="dropdown-menu" role="menu">
+				<li><a href="<{$xoops_url}>/modules/<{$menu0.dirname}>/<{$menu0.url}>" class="menu_level1<{$menu1_class}>"><{$menu0.name}></a></li>
+
+				<{foreach from=$xugj_menus1 item="menu1"}>
+					<li><a href="<{$xoops_url}>/modules/<{$menu1.dirname}>/<{$menu1.url}>" class="menu_level1<{$menu1_class}>"><{$menu1.name}></a></li>
+				<{/foreach}>
+			</ul>
+		<{/if}>
+	</li>
+<{/foreach}>
+<{* end xugj menu *}>

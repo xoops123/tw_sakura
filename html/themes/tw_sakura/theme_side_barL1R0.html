@@ -1,0 +1,10 @@
+<{strip}>
+	<div id="left_bar" class="span2"><{* left-column *}>
+		<{foreach item=block from=$xoops_lblocks name=lbloop}>
+			<div>
+				<{if ! $block.title|strstr:"none"}><h3 class="BlockTitle"><span class="sakura_a"><{$block.title|regex_replace:"/\[\[\w+/":""}></span></h3><{/if}>
+				<{$block.content}>
+			</div>
+		<{/foreach}>
+	</div>
+<{/strip}>

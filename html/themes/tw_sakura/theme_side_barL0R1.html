@@ -1,0 +1,10 @@
+<{strip}>
+	<div id="right_bar" class="span3"><{* right-column *}>
+		<{foreach item=block from=$xoops_rblocks name=rbloop}>
+			<div>
+				<{if ! $block.title|strstr:"none"}><h3 class="BlockTitle"><span class="sakura_a"><{$block.title|regex_replace:"/\[\[\w+/":""}></span></h3><{/if}>
+				<{$block.content}>
+			</div>
+		<{/foreach}>
+	</div>
+<{/strip}>

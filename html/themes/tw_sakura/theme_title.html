@@ -1,0 +1,42 @@
+<{strip}>
+<ul class="breadcrumb">
+<li><a href="<{$xoops_url}>/"><{$xoops_sitename}></a> <span class="divider">/</span></li>
+<{if $xoops_dirname == "webphoto"}>
+	<{foreach from=$xoops_breadcrumbs item="item"}>
+		<{if $item.url}>
+			<li><a href="<{$item.url}>"><{$item.name}></a> <span class="divider">/</span></li>
+		<{/if}>
+	<{/foreach}>
+ 		<li class="active"><{$title_bread_crumb}></li>
+<{elseif $xoops_dirname == "piCal"}>
+	<{foreach from=$xoops_breadcrumbs item="item"}>
+		<li class="active"><{$item.name}></li>
+	<{/foreach}>
+<{elseif $xoops_dirname == "ccenter"}>
+	<{foreach from=$xoops_breadcrumbs item="item" name="loop"}>
+		<{if $smarty.foreach.loop.first}>
+			<li class="active"><{$item.name}></li>
+	  	<{/if}>
+	<{/foreach}>
+<{else}>
+	<{foreach from=$xoops_breadcrumbs item="item" name="loop"}>
+		<{if $smarty.foreach.loop.first}>
+			<{if $item.url}>
+				<li><a href="<{$item.url}>"><{$item.name}></a> <span class="divider">/</span></li>
+		  	<{else}>
+		        <li class="active"><{$item.name}></li>
+		  	<{/if}>
+	  	<{else}>
+			<{if $item.url}>
+				<li>&nbsp;<a href="<{$item.url}>"><{$item.name}></a> <span class="divider">/</span></li>
+		  	<{else}>
+		        <li class="active">&nbsp;<{$item.name}></li>
+		  	<{/if}>
+	  	<{/if}>
+	<{/foreach}>
+		<{if $xoops_dirname == "gallery"}>
+			<li class="active">(<{$photo_num_total}>)</li>
+		<{/if}>
+<{/if}>
+</ul>
+<{/strip}>

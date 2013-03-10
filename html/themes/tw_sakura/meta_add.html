@@ -1,0 +1,67 @@
+<{strip}>
+<{* ページタイトルがある場合はタイトルを付加。それ以外はスローガンを付加。 *}>
+<meta property="og:site_name" content="<{$xoops_sitename}>">
+<meta property="og:title" content="
+	<{$xoops_sitename}>
+	<{if $xoops_dirname == ""}>
+		,<{$xoops_slogan}>
+	<{else}>
+		<{if $xoops_dirname == "webphoto"}>
+			<{foreach from=$xoops_breadcrumbs item="item"}>
+				<{if $item.url}>
+					<{$item.name}>,
+				<{/if}>
+			<{/foreach}>
+		 		<{$title_bread_crumb}>
+		<{elseif $xoops_dirname == "piCal"}>
+			<{foreach from=$xoops_breadcrumbs item="item"}>
+				<{$item.name}>,
+			<{/foreach}>
+		<{elseif $xoops_dirname == "ccenter"}>
+			<{foreach from=$xoops_breadcrumbs item="item" name="loop"}>
+				<{if $smarty.foreach.loop.first}>
+					<{$item.name}>,
+			  	<{/if}>
+			<{/foreach}>
+		<{else}>
+			<{foreach from=$xoops_breadcrumbs item="item" name="loop"}>
+				<{if $smarty.foreach.loop.first}>
+						<{$item.name}>
+			  	<{else}>
+						,<{$item.name}>
+			  	<{/if}>
+			<{/foreach}>
+		<{/if}>
+	<{/if}>
+">
+<{/strip}>
+<meta property="og:type" content="website">
+<meta property="og:description" content="<{strip}>
+		<{if $xoops_dirname == "gnavi"}>
+			<{if $photo.cid =="1"}>
+				<{assign var="gnavibody" value=$photo.description|strip_tags|strip}>
+				<{assign var="xoops_meta_description" value=$gnavibody|mb_substr:"0":"160"}>
+				<{$xoops_meta_description}>
+			<{else}>
+				<{$xoops_meta_description}>
+			<{/if}>
+		<{elseif $xoops_dirname == "bulletin"}>
+			<{if substr($xoops_requesturi,-9) == '/index.php' or substr($xoops_requesturi,-1) == '/'}>
+				<{$xoops_modulename}>
+			<{else}>
+				<{$xoops_meta_description}>
+			<{/if}>
+		<{elseif $xoops_dirname == "d3forum"}>
+			<{* トップページの場合 *}>
+			<{if substr($xoops_requesturi,-9) == '/index.php' or substr($xoops_requesturi,-1) == '/'}>
+				<{$category.desc}>
+			<{else}>
+				<{$xoops_meta_description}>
+			<{/if}>
+	  	<{else}>
+			<{$xoops_meta_description}>
+		<{/if}>
+"><{/strip}>
+<{include_php file="`$smarty.const.XOOPS_THEME_PATH`/`$xoops_theme`/server_url_is.php"}><{* og:url *}>
+<{* イメージは、gnaviの時は記事の画像。それ以外は指定場所のイメージ *}>
+<meta property="og:image" content="<{if $photo.ext}><{$photo.imgsrc_photo}><{else}><{$xoops_imageurl}>images/ogp_image.png<{/if}>">
