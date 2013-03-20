@@ -24,7 +24,6 @@
 <script type="text/javascript" src="<{$xoops_imageurl}>js/jquery-1.8.2.min.js"></script>
 <{/if}>
 <{if $xoops_module_header}><{$xoops_module_header}><{/if}><{if $xoops_block_header}><{$xoops_block_header}><{/if}>
-<script type="text/javascript" src="<{$xoops_imageurl}>js/bootstrap.min.js"></script>
 <{include file="`$xoops_theme`/theme_redirect_js.html"}>
 <{include file="`$xoops_theme`/theme_ext_js.html"}>
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -79,28 +78,28 @@
 	</div>
 
 <{if $xoops_dirname == ""}>
-	<div id="image_wrap">
-		<ul class="slider">
-	  		<li class="slide1"><img src="<{$xoops_imageurl}>images/slide001.jpg"></li>
-	  		<li class="slide1"><img src="<{$xoops_imageurl}>images/slide002.jpg"></li>
-	  		<li class="slide1"><img src="<{$xoops_imageurl}>images/slide003.jpg"></li>
-	  		<li class="slide1"><img src="<{$xoops_imageurl}>images/slide004.jpg"></li>
-	  		<li class="slide1"><img src="<{$xoops_imageurl}>images/slide005.jpg"></li>
-	  		<li class="slide1"><img src="<{$xoops_imageurl}>images/slide006.jpg"></li>
-	  		<li class="slide1"><img src="<{$xoops_imageurl}>images/slide007.jpg"></li>
-	  		<li class="slide1"><img src="<{$xoops_imageurl}>images/slide008.jpg"></li>
-	  		<li class="slide1"><img src="<{$xoops_imageurl}>images/slide009.jpg"></li>
-		</ul>
-	</div>
+<div id="image_wrap">
+	<ul class="slider">
+  		<li class="slide1"><img src="<{$xoops_imageurl}>images/slide001.jpg"></li>
+  		<li class="slide1"><img src="<{$xoops_imageurl}>images/slide002.jpg"></li>
+  		<li class="slide1"><img src="<{$xoops_imageurl}>images/slide003.jpg"></li>
+  		<li class="slide1"><img src="<{$xoops_imageurl}>images/slide004.jpg"></li>
+  		<li class="slide1"><img src="<{$xoops_imageurl}>images/slide005.jpg"></li>
+  		<li class="slide1"><img src="<{$xoops_imageurl}>images/slide006.jpg"></li>
+  		<li class="slide1"><img src="<{$xoops_imageurl}>images/slide007.jpg"></li>
+  		<li class="slide1"><img src="<{$xoops_imageurl}>images/slide008.jpg"></li>
+  		<li class="slide1"><img src="<{$xoops_imageurl}>images/slide009.jpg"></li>
+	</ul>
+</div>
 <{/if}>
 
 </header>
 
 <{* start contents *}>
 <{if !$xoops_dirname == ""}>
-	<div class="container">
-		<{include file="`$xoops_theme`/theme_title.html"}>
-	</div><!-- /container -->
+<div class="container">
+	<{include file="`$xoops_theme`/theme_title.html"}>
+</div><!-- /container -->
 <{/if}>
 
 <{* main contents *}>
@@ -110,12 +109,12 @@
 <div class="row">
 <{foreach item=block from=$xoops_ccblocks name=ccloop}>
 <{if $block.weight == 0 }>
-	<div class="span12" id="centerc<{$smarty.foreach.ccloop.iteration}>">
-		<div>
-		<{if ! $block.title|strstr:"none"}><h2 class="BlockTitle"><span><{$block.title|regex_replace:"/\[\[\w+/":""}></span></h2><{/if}>
-		<{$block.content}>
-		</div>
+<div class="span12" id="centerc<{$smarty.foreach.ccloop.iteration}>">
+	<div>
+	<{if ! $block.title|strstr:"none"}><h2 class="BlockTitle"><span><{$block.title|regex_replace:"/\[\[\w+/":""}></span></h2><{/if}>
+	<{$block.content}>
 	</div>
+</div>
 <{/if}>
 <{/foreach}>
 </div>
@@ -126,96 +125,96 @@
 <div class="container">
 <div class="row">
 
-	<{* center contents *}>
-	<div id="center_contents" class="span<{strip}>
-			<{if $layout == "L1R1"}>
-			7
-			<{elseif $layout == "L1R0"}>
-			10
-			<{elseif $layout == "L0R1"}>
-			9
-			<{else}>
-			12
-			<{/if}>
-	"><{/strip}>
-		
-	   <!-- Center Center Column -->
-	   <{if $xoops_ccblocks}>
-	   <{foreach item=block from=$xoops_ccblocks name=ccloop}>
-		   <{if $block.weight > 0 and $block.weight < 500 }>
-			<div><{strip}>
-			    <{if ! $block.title|strstr:"none"}>
-			    	<{if $smarty.foreach.ccloop.iteration==1}>
-			    		<h2 class="BlockTitle"><span><{$block.title|regex_replace:"/\[\[\w+/":""}></span></h2>
-			    	<{else}>
-			    		<h3 class="BlockTitle"><span class="sakura3"><{$block.title|regex_replace:"/\[\[\w+/":""}></span></h3>
-			    	<{/if}>
-			    <{/if}>
-			    <{$block.content}>
-		   </div><{/strip}>
-		   <{/if}>
-	   <{/foreach}>
-	   <{/if}>
-	
-		<article id="main-content">
-			<div><{$xoops_contents}></div>
-		</article>
-		
-	   <!-- Center Center Column -->
-		<{foreach item=block from=$xoops_ccblocks name=ccloop}>
-			<{if $block.weight >= 500 and $block.weight < 1000 }>
-			<div>
-			    <{if ! $block.title|strstr:"none"}><h3 class="BlockTitle"><span><{$block.title|regex_replace:"/\[\[\w+/":""}></span></h3><{/if}>
-			    <{$block.content}>
-			</div>
-		 	<{/if}>
-		<{/foreach}>
-		
-		<div class="row-fluid"><!-- Center Left/Right Column -->
-		<{if $xoops_clblocks}><!-- Center Left Column -->
-		<div class="span6">
-			<{foreach item=block from=$xoops_clblocks name=clloop}>
-				<div>
-					<{if ! $block.title|strstr:"none"}><h3 class="BlockTitle"><span><{$block.title|regex_replace:"/\[\[\w+/":""}></span></h3><{/if}>
-					<{$block.content}>
-				</div>
-			<{/foreach}>
-		</div><!-- End Center Left Column -->
-		<{/if}>
-		<{if $xoops_crblocks}><!-- Center Right Column -->
-		<div class="span6">
-			<{foreach item=block from=$xoops_crblocks name=crloop}>
-				<div>
-			    <{if ! $block.title|strstr:"none"}><h3 class="BlockTitle"><span><{$block.title|regex_replace:"/\[\[\w+/":""}></span></h3><{/if}>
-			    <{$block.content}>
-				</div>
-			<{/foreach}>
-		</div><!-- End Center Right Column -->
-		<{/if}>
-		</div><{* / row *}>
-
-	   <!-- Center Center Column -->
-		<{foreach item=block from=$xoops_ccblocks name=ccloop}>
-			<{if $block.weight >= 1000 and $block.weight < 2000 }>
-			<div>
-			    <{if ! $block.title|strstr:"none"}><h3 class="BlockTitle"><span><{$block.title|regex_replace:"/\[\[\w+/":""}></span></h3><{/if}>
-			    <{$block.content}>
-			</div>
-		 	<{/if}>
-		<{/foreach}>
-	
-	</div><{* / center contents *}>
-
-	<{* side_bar *}>
+<{* center contents *}>
+<div id="center_contents" class="span<{strip}>
 		<{if $layout == "L1R1"}>
-			<{include file="`$xoops_theme`/theme_side_barL1R1.html"}>
+		7
 		<{elseif $layout == "L1R0"}>
-			<{include file="`$xoops_theme`/theme_side_barL1R0.html"}>
+		10
 		<{elseif $layout == "L0R1"}>
-			<{include file="`$xoops_theme`/theme_side_barL0R1.html"}>
+		9
 		<{else}>
+		12
 		<{/if}>
-	<{* /side_bar *}>
+"><{/strip}>
+	
+   <!-- Center Center Column -->
+   <{if $xoops_ccblocks}>
+   <{foreach item=block from=$xoops_ccblocks name=ccloop}>
+	   <{if $block.weight > 0 and $block.weight < 500 }>
+		<div><{strip}>
+		    <{if ! $block.title|strstr:"none"}>
+		    	<{if $smarty.foreach.ccloop.iteration==1}>
+		    		<h2 class="BlockTitle"><span><{$block.title|regex_replace:"/\[\[\w+/":""}></span></h2>
+		    	<{else}>
+		    		<h3 class="BlockTitle"><span class="sakura3"><{$block.title|regex_replace:"/\[\[\w+/":""}></span></h3>
+		    	<{/if}>
+		    <{/if}>
+		    <{$block.content}>
+	   </div><{/strip}>
+	   <{/if}>
+   <{/foreach}>
+   <{/if}>
+
+	<article id="main-content">
+		<div><{$xoops_contents}></div>
+	</article>
+	
+   <!-- Center Center Column -->
+	<{foreach item=block from=$xoops_ccblocks name=ccloop}>
+		<{if $block.weight >= 500 and $block.weight < 1000 }>
+		<div>
+		    <{if ! $block.title|strstr:"none"}><h3 class="BlockTitle"><span><{$block.title|regex_replace:"/\[\[\w+/":""}></span></h3><{/if}>
+		    <{$block.content}>
+		</div>
+	 	<{/if}>
+	<{/foreach}>
+	
+	<div class="row-fluid"><!-- Center Left/Right Column -->
+	<{if $xoops_clblocks}><!-- Center Left Column -->
+	<div class="span6">
+		<{foreach item=block from=$xoops_clblocks name=clloop}>
+			<div>
+				<{if ! $block.title|strstr:"none"}><h3 class="BlockTitle"><span><{$block.title|regex_replace:"/\[\[\w+/":""}></span></h3><{/if}>
+				<{$block.content}>
+			</div>
+		<{/foreach}>
+	</div><!-- End Center Left Column -->
+	<{/if}>
+	<{if $xoops_crblocks}><!-- Center Right Column -->
+	<div class="span6">
+		<{foreach item=block from=$xoops_crblocks name=crloop}>
+			<div>
+		    <{if ! $block.title|strstr:"none"}><h3 class="BlockTitle"><span><{$block.title|regex_replace:"/\[\[\w+/":""}></span></h3><{/if}>
+		    <{$block.content}>
+			</div>
+		<{/foreach}>
+	</div><!-- End Center Right Column -->
+	<{/if}>
+	</div><{* / row *}>
+
+   <!-- Center Center Column -->
+	<{foreach item=block from=$xoops_ccblocks name=ccloop}>
+		<{if $block.weight >= 1000 and $block.weight < 2000 }>
+		<div>
+		    <{if ! $block.title|strstr:"none"}><h3 class="BlockTitle"><span><{$block.title|regex_replace:"/\[\[\w+/":""}></span></h3><{/if}>
+		    <{$block.content}>
+		</div>
+	 	<{/if}>
+	<{/foreach}>
+	
+</div><{* / center contents *}>
+
+<{* side_bar *}>
+	<{if $layout == "L1R1"}>
+		<{include file="`$xoops_theme`/theme_side_barL1R1.html"}>
+	<{elseif $layout == "L1R0"}>
+		<{include file="`$xoops_theme`/theme_side_barL1R0.html"}>
+	<{elseif $layout == "L0R1"}>
+		<{include file="`$xoops_theme`/theme_side_barL0R1.html"}>
+	<{else}>
+	<{/if}>
+<{* /side_bar *}>
 
 </div><!-- /row -->
 </div><!-- /container -->
