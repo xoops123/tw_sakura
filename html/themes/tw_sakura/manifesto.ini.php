@@ -15,7 +15,7 @@ ScreenShot="screenshot.png"
 Description="TwitterBootstrap"
 W3C=YES
 
-Licence="MIT"
+Licence="CC"
 
 */
 ?>
